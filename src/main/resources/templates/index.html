@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Skill matrix</title>
+  <link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" />
+  <link href="webjars/bootstrap/3.3.7/css/bootstrap.min.css" th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}" rel="stylesheet" />
+</head>
+<body>
+<div class="container">
+  <h2 align="center">Categories</h2>
+  <br /><br />
+  <div class="alert alert-danger hidden" id="alert" role="alert">
+    Something went wrong! Please try again.
+  </div>
+  <div class="col-md-6">
+    <div id="treeview" class="treeview"></div>
+    <div class="form-group hidden" id="add">
+      <div class="alert alert-danger hidden" id="alert-add" role="alert">
+        <p>Invalid input! String must contain only characters without digits!</p>
+      </div>
+      <input type="input" class="form-control" id="input-add" required placeholder="Input node name..." value="">
+      <input type="button" class="btn btn-default" value="Add new node" onclick="add()"/>
+    </div>
+    <div class="form-group hidden" id="edit">
+      <div class="alert alert-danger hidden" id="alert-edit" role="alert">
+        <p>Invalid input! String must contain only characters without digits!</p>
+      </div>
+      <input type="input" class="form-control" id="input-edit" required placeholder="Edit node name..." value="">
+      <input type="button" class="btn btn-default" value="Edit node" onclick="edit()"/>
+    </div>
+    <div class="form-group">
+      <button class="btn btn-success glyphicon glyphicon-plus-sign pull-right btn-sm" onclick="createNode()"></button>
+      <button class="btn btn-primary glyphicon glyphicon-edit pull-right btn-sm" onclick="editNode()"></button>
+      <button class="btn btn-danger glyphicon glyphicon-remove-sign pull-right btn-sm" onclick="remove()"></button>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      <label for="input-search" class="sr-only">Search Tree:</label>
+      <input type="input" class="form-control hidden" id="input-search" placeholder="Type to search..." value="">
+      <button type="button" class="btn btn-default pull-right hidden" id="btn-clear-search" onclick="clearTree()">Clear</button>
+      <button type="button" class="btn btn-success pull-right hidden" id="btn-search" onclick="search()">Search</button>
+    </div>
+  </div>
+
+</div>
+<script src="webjars/jquery/3.3.1-1/jquery.js"></script>
+<script src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" th:src="@{/js/bootstrap-treeview.js}"></script>
+<script type="text/javascript" th:src="@{/js/treeview.js}"></script>
+<script type="text/javascript" th:src="@{/js/controller.js}"></script>
+<script type="text/javascript" th:src="@{/js/tree-node.js}"></script>
+</body>
+</html>
